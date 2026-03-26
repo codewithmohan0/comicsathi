@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Sathi - Meme Marketing & Brand Promotion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF2E63;
+            --secondary: #FFD23F;
+            --accent: #08D9D6;
+            --dark: #1A1A2E;
+            --light: #EAEAEA;
+            --comic-blue: #4E89FF;
+            --comic-green: #2DD881;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Comic Book Background Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary);
+            box-shadow: 0 4px 20px rgba(255, 46, 99, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            text-shadow: 3px 3px 0 var(--primary), 6px 6px 0 var(--accent);
+            letter-spacing: 2px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: 'POW!';
+            position: absolute;
+            font-family: 'Bangers', cursive;
+            font-size: 20rem;
+            color: rgba(255, 46, 99, 0.05);
+            top: 10%;
+            right: -10%;
+            transform: rotate(-15deg);
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: 'BOOM!';
+            position: absolute;
+            font-family: 'Bangers', cursive;
+            font-size: 15rem;
+            color: rgba(255, 210, 63, 0.05);
+            bottom: 10%;
+            left: -5%;
+            transform: rotate(10deg);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            text-shadow: 4px 4px 0 var(--primary), 8px 8px 0 var(--accent);
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: 4px solid var(--dark);
+            box-shadow: 6px 6px 0 var(--secondary);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--accent);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 var(--secondary);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Bangers', cursive;
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--secondary);
+            text-shadow: 3px 3px 0 var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 4px solid var(--primary);
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s;
+            animation: fadeIn 0.8s ease-out backwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 46, 99, 0.4);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            line-height: 1.8;
+            color: var(--light);
+        }
+
+        /* How We Work Section */
+        .how-we-work {
+            padding: 6rem 2rem;
+            background: rgba(255, 46, 99, 0.05);
+            position: relative;
+            z-index: 2;
+        }
+
+        .work-process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: var(--dark);
+            border: 3px solid var(--accent);
+            padding: 2rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .process-step::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            background: var(--dark);
+            color: var(--secondary);
+            padding: 0 1rem;
+        }
+
+        .process-step h4 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin: 1.5rem 0 1rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 5px solid var(--primary);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 46, 99, 0.1);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: rgba(26, 26, 46, 0.8);
+            padding: 3rem;
+            border: 4px solid var(--secondary);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--accent);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Social Links */
+        .social-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: rgba(8, 217, 214, 0.05);
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border: 4px solid var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 2rem;
+            transition: all 0.3s;
+            box-shadow: 5px 5px 0 var(--secondary);
+        }
+
+        .social-link:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 3px 3px 0 var(--secondary);
+            background: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 3px solid var(--primary);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--secondary);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(26, 26, 46, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Privacy and Cookie Notice */
+        .policy-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: auto;
+        }
+
+        .policy-content {
+            max-width: 800px;
+            margin: 4rem auto;
+            background: var(--dark);
+            padding: 3rem;
+            border: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .policy-content h2 {
+            font-family: 'Bangers', cursive;
+            color: var(--secondary);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .policy-content h3 {
+            color: var(--accent);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-content p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">COMIC SATHI</div>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-we-work">How We Work</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>MAKE YOUR BRAND GO VIRAL!</h1>
+            <p>We turn memes into marketing magic. Comic Sathi specializes in meme marketing, graphic design, and brand promotion that actually works!</p>
+            <a href="#contact" class="cta-button"><span>Let's Collaborate!</span></a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">😂</div>
+                    <h3>Meme Marketing</h3>
+                    <p>We collaborate with brands to increase their reach and engagement through strategic meme content. We create shareable, relatable memes that resonate with your audience and make your brand memorable.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Graphic Designing</h3>
+                    <p>Eye-catching graphics that capture attention and communicate your message. From social media posts to promotional materials, we design visuals that stand out in the digital noise.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Brand Promotion</h3>
+                    <p>Strategic brand promotion that gets your name out there. We help you build a strong online presence through creative content and targeted campaigns that drive real results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section class="how-we-work" id="how-we-work">
+        <div class="container">
+            <h2 class="section-title">How We Work</h2>
+            <div class="work-process">
+                <div class="process-step" data-step="01">
+                    <h4>Discovery</h4>
+                    <p>We understand your brand, audience, and goals through detailed consultation.</p>
+                </div>
+                <div class="process-step" data-step="02">
+                    <h4>Strategy</h4>
+                    <p>We develop a customized meme marketing and content strategy tailored to your needs.</p>
+                </div>
+                <div class="process-step" data-step="03">
+                    <h4>Creation</h4>
+                    <p>Our creative team crafts engaging memes and graphics that align with your brand voice.</p>
+                </div>
+                <div class="process-step" data-step="04">
+                    <h4>Collaboration</h4>
+                    <p>We work closely with you to ensure the content meets your expectations and brand standards.</p>
+                </div>
+                <div class="process-step" data-step="05">
+                    <h4>Launch & Share</h4>
+                    <p>We help distribute your content across platforms to maximize reach and engagement.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; background: rgba(255, 255, 255, 0.05); padding: 2rem; border-left: 5px solid var(--accent);">
+                <h3 style="font-family: 'Bangers', cursive; color: var(--secondary); font-size: 2rem; margin-bottom: 1rem;">What We DON'T Do</h3>
+                <p style="line-height: 1.8;">We focus exclusively on creative content and brand promotion. We don't handle website development, paid advertising management, or traditional PR services. Our specialty is making your brand shareable through memes and creative graphics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Questions We Always Get</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How does meme marketing actually work?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We collaborate with your brand to create memes that align with your message and values. These memes are designed to be highly shareable, helping increase your brand's visibility and engagement organically. Memes work because they're relatable, entertaining, and easily digestible – perfect for today's social media landscape.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What makes Comic Sathi different from other marketing agencies?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We specialize exclusively in meme marketing and creative graphics. We're not a traditional agency – we're meme experts who understand internet culture and how to make content that actually gets shared. Our approach is fresh, bold, and designed for the digital generation.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How long does it take to see results?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Meme marketing can show results quickly if the content resonates with your audience. Some memes go viral within days, while building a consistent brand presence takes time. We typically recommend a 3-month collaboration to build momentum and see meaningful engagement growth.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you work with all types of businesses?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We work with brands that have an audience on social media and understand the value of creative content. Whether you're a startup, local business, or established brand, if you're ready to try something different and embrace meme culture, we're your team!
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What information do you need to get started?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We'll need to understand your brand identity, target audience, social media presence, and marketing goals. During our initial consultation, we'll discuss your brand's voice, what you want to achieve, and how meme marketing can help you get there.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I see examples of your previous work?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        As we're building our portfolio, we're currently offering special rates for early collaborators. Check out our Instagram for our latest creative work and to see our style in action!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="container">
+            <h2 class="section-title">Follow Our Journey</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Check out our latest memes and creative work!</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/comic.sathi?igsh=MXF1M3hjcXBoeDQybQ==" target="_blank" class="social-link" title="Follow us on Instagram">
+                    📱
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Ready to make your brand unforgettable? Drop us a message!</p>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand">Brand/Business Name</label>
+                        <input type="text" id="brand" name="brand" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell Us About Your Project</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button"><span>Send Message</span></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#" onclick="showPolicy('privacy'); return false;">Privacy Policy</a>
+            <a href="#" onclick="showPolicy('cookies'); return false;">Cookie Policy</a>
+            <a href="mailto:sathicomic@gmail.com">Email Us</a>
+        </div>
+        <p>&copy; 2024 Comic Sathi. All rights reserved. Making brands viral, one meme at a time! 🚀</p>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="policy-modal">
+        <div class="policy-content">
+            <button class="close-modal" onclick="closePolicy()">×</button>
+            <h2>Privacy Policy</h2>
+            
+            <p><strong>Last Updated: March 2024</strong></p>
+            
+            <h3>Information We Collect</h3>
+            <p>When you contact us through our website, we collect information you voluntarily provide, including your name, email address, business name, and any details about your project or inquiry.</p>
+            
+            <h3>How We Use Your Information</h3>
+            <p>We use the information you provide to:</p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Respond to your inquiries and provide requested services</li>
+                <li>Communicate with you about our services</li>
+                <li>Improve our website and services</li>
+            </ul>
+            
+            <h3>Data Protection</h3>
+            <p>We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. However, no internet transmission is completely secure.</p>
+            
+            <h3>Third-Party Sharing</h3>
+            <p>We do not sell, trade, or rent your personal information to third parties. We may share information with service providers who assist us in operating our website, but only to the extent necessary.</p>
+            
+            <h3>Your Rights</h3>
+            <p>You have the right to request access to, correction of, or deletion of your personal information. Contact us at sathicomic@gmail.com for any data-related requests.</p>
+            
+            <h3>Contact Us</h3>
+            <p>If you have questions about this Privacy Policy, please contact us at sathicomic@gmail.com</p>
+        </div>
+    </div>
+
+    <!-- Cookie Policy Modal -->
+    <div id="cookieModal" class="policy-modal">
+        <div class="policy-content">
+            <button class="close-modal" onclick="closePolicy()">×</button>
+            <h2>Cookie Policy</h2>
+            
+            <p><strong>Last Updated: March 2024</strong></p>
+            
+            <h3>What Are Cookies</h3>
+            <p>Cookies are small text files that are placed on your device when you visit our website. They help us provide you with a better experience by remembering your preferences and understanding how you use our site.</p>
+            
+            <h3>Types of Cookies We Use</h3>
+            
+            <h4 style="color: var(--accent); margin-top: 1rem;">Essential Cookies</h4>
+            <p>These cookies are necessary for the website to function properly. They enable basic features like page navigation and access to secure areas.</p>
+            
+            <h4 style="color: var(--accent); margin-top: 1rem;">Analytics Cookies</h4>
+            <p>We may use analytics cookies to understand how visitors interact with our website, helping us improve our services and user experience.</p>
+            
+            <h3>Managing Cookies</h3>
+            <p>Most web browsers allow you to control cookies through their settings. You can choose to block or delete cookies, though this may affect your experience on our website.</p>
+            
+            <h3>Third-Party Cookies</h3>
+            <p>We may use third-party services that set cookies on your device. These services have their own privacy policies, which we recommend you review.</p>
+            
+            <h3>Contact Us</h3>
+            <p>If you have questions about our use of cookies, please contact us at sathicomic@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const brand = document.getElementById('brand').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = `New Collaboration Request from ${brand}`;
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ABrand: ${brand}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            
+            window.location.href = `mailto:sathicomic@gmail.com?subject=${subject}&body=${body}`;
+        });
+
+        // Policy Modals
+        function showPolicy(type) {
+            if (type === 'privacy') {
+                document.getElementById('privacyModal').style.display = 'block';
+            } else if (type === 'cookies') {
+                document.getElementById('cookieModal').style.display = 'block';
+            }
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePolicy() {
+            document.getElementById('privacyModal').style.display = 'none';
+            document.getElementById('cookieModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const privacyModal = document.getElementById('privacyModal');
+            const cookieModal = document.getElementById('cookieModal');
+            if (event.target === privacyModal) {
+                closePolicy();
+            }
+            if (event.target === cookieModal) {
+                closePolicy();
+            }
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
