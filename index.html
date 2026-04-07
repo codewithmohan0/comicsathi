@@ -3,37 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic Sathi - हसाउँछौं, बिक्री बढाउँछौं। Meme Marketing</title>
+    <title>Comic Sathi — Meme Marketing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Playfair+Display:wght@700;900&family=Noto+Sans+Devanagari:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* ============================================
-           COMIC SATHI - NEON STYLE GUIDE
-           Complete CSS Design System
-           ============================================ */
+           COMIC SATHI — APPLE DESIGN SYSTEM
+        ============================================ */
 
-        /* ROOT VARIABLES */
         :root {
-            --primary: #FF1B6D;
-            --secondary: #00D9FF;
-            --accent: #FFD60A;
-            --dark-bg: #0A0E27;
-            --dark-card: #1a1f3a;
-            --light-text: #FFFFFF;
-            --text-muted: #B0B8D4;
-            --purple-1: #7C3AED;
-            --purple-2: #A78BFA;
-            --pink-1: #EC4899;
-            --pink-2: #F472B6;
-            --neon-blue: #00D9FF;
-            --neon-pink: #FF006E;
-            --neon-purple: #8B5CF6;
-            --neon-orange: #FFB700;
+            --apple-blue: #0071e3;
+            --link-blue-light: #0066cc;
+            --link-blue-dark: #2997ff;
+            --black: #000000;
+            --light-gray: #f5f5f7;
+            --near-black: #1d1d1f;
+            --white: #ffffff;
+            --text-secondary-light: rgba(0,0,0,0.56);
+            --text-secondary-dark: rgba(255,255,255,0.72);
+            --dark-surface-1: #272729;
+            --dark-surface-2: #28282a;
+            --dark-surface-3: #2a2a2d;
+            --card-shadow: rgba(0,0,0,0.22) 3px 5px 30px 0px;
+            --button-active: #ededf2;
+            --nav-bg: rgba(0,0,0,0.8);
+            --font-display: -apple-system, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --font-text: -apple-system, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --font-nepali: 'Noto Sans Devanagari', sans-serif;
         }
 
-        /* GLOBAL STYLES */
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -42,1441 +42,1439 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--dark-bg);
-            color: var(--light-text);
+            font-family: var(--font-text);
+            background: var(--black);
+            color: var(--white);
             overflow-x: hidden;
-            position: relative;
-            line-height: 1.6;
         }
 
         /* ============================================
-           BACKGROUND ANIMATION
-           ============================================ */
-
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .neon-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.4;
-            mix-blend-mode: screen;
-            animation: blobMove 15s ease-in-out infinite;
-        }
-
-        .blob-1 {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
-            top: -150px;
-            right: -100px;
-            animation-duration: 20s;
-        }
-
-        .blob-2 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, var(--neon-blue), #0084FF);
-            bottom: -100px;
-            left: 5%;
-            animation-duration: 18s;
-            animation-delay: 2s;
-        }
-
-        .blob-3 {
-            width: 450px;
-            height: 450px;
-            background: linear-gradient(135deg, var(--neon-orange), var(--neon-pink));
-            top: 40%;
-            left: -150px;
-            animation-duration: 22s;
-            animation-delay: 4s;
-        }
-
-        .blob-4 {
-            width: 350px;
-            height: 350px;
-            background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
-            bottom: 10%;
-            right: 5%;
-            animation-duration: 25s;
-            animation-delay: 1s;
-        }
-
-        @keyframes blobMove {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            25% {
-                transform: translate(50px, -50px) scale(1.05);
-            }
-            50% {
-                transform: translate(-30px, 50px) scale(0.95);
-            }
-            75% {
-                transform: translate(80px, 30px) scale(1.02);
-            }
-        }
-
-        .grid-overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 80px 80px;
-            opacity: 0.5;
-        }
-
-        /* ============================================
-           NAVIGATION
-           ============================================ */
+           NAVIGATION — APPLE GLASS
+        ============================================ */
 
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 14, 39, 0.85);
-            backdrop-filter: blur(20px);
-            padding: 1.5rem 2rem;
-            z-index: 1000;
-            border-bottom: 2px solid rgba(0, 217, 255, 0.2);
+            height: 48px;
+            background: var(--nav-bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            z-index: 9999;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.1);
+            justify-content: center;
         }
 
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
+        .nav-inner {
             width: 100%;
+            max-width: 980px;
+            padding: 0 22px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-blue), var(--neon-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
-            animation: neonGlow 3s ease-in-out infinite;
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: -0.28px;
+            text-decoration: none;
             cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .logo:hover {
-            filter: brightness(1.3);
-        }
-
-        @keyframes neonGlow {
-            0%, 100% {
-                filter: brightness(1);
-                text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
-            }
-            50% {
-                filter: brightness(1.3);
-                text-shadow: 0 0 40px rgba(255, 0, 110, 0.5);
-            }
         }
 
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 0;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            font-family: var(--font-text);
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            position: relative;
-            transition: all 0.3s;
-            letter-spacing: 0.5px;
-            padding: 1rem 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
-            transition: all 0.3s;
-            box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+            padding: 0 10px;
+            line-height: 48px;
+            display: block;
+            transition: color 0.2s;
+            letter-spacing: -0.12px;
         }
 
         .nav-links a:hover {
-            color: var(--light-text);
+            color: var(--white);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-cta {
+            font-family: var(--font-text);
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--link-blue-dark) !important;
+            text-decoration: none;
+            padding: 4px 12px !important;
+            border: 1px solid var(--link-blue-dark);
+            border-radius: 980px;
+            transition: all 0.2s !important;
+            line-height: 1.43 !important;
         }
 
-        .mobile-menu-toggle {
+        .nav-cta:hover {
+            background: rgba(41,151,255,0.1) !important;
+        }
+
+        .mobile-toggle {
             display: none;
             background: none;
             border: none;
-            color: var(--secondary);
-            font-size: 2rem;
             cursor: pointer;
+            padding: 8px;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 18px;
+            height: 1.5px;
+            background: var(--white);
             transition: all 0.3s;
         }
 
-        .mobile-menu-toggle:hover {
-            color: var(--neon-pink);
-            transform: scale(1.1);
-        }
-
         /* ============================================
-           HERO SECTION
-           ============================================ */
+           HERO — DARK, CINEMATIC
+        ============================================ */
 
         .hero {
+            background: var(--black);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
-            z-index: 10;
-            margin-top: 60px;
+            padding: 88px 22px 80px;
         }
 
-        .hero-content {
-            max-width: 1000px;
-            animation: heroFadeInUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        .hero-inner {
+            max-width: 700px;
         }
 
-        @keyframes heroFadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-eyebrow {
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            color: var(--link-blue-dark);
+            letter-spacing: -0.374px;
+            line-height: 1.47;
+            margin-bottom: 8px;
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 5.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--neon-pink) 0%, var(--neon-blue) 50%, var(--neon-orange) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -2px;
-            filter: drop-shadow(0 0 20px rgba(255, 0, 110, 0.3));
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.07;
+            letter-spacing: -0.28px;
+            color: var(--white);
+            margin-bottom: 17px;
         }
 
-        .tagline-nepali {
-            font-family: 'Noto Sans Devanagari', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--neon-blue);
-            margin: 1.5rem 0;
-            letter-spacing: 1px;
-            animation: slideInRight 1s ease-out 0.2s backwards;
-            text-shadow: 
-                0 0 20px rgba(0, 217, 255, 0.5),
-                0 0 40px rgba(139, 92, 246, 0.3);
-            line-height: 1.4;
+        .hero-nepali {
+            font-family: var(--font-nepali);
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.47;
+            color: rgba(255,255,255,0.72);
+            margin-bottom: 20px;
+            letter-spacing: 0;
         }
 
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            animation: slideInRight 1s ease-out 0.4s backwards;
+        .hero-sub {
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.47;
+            letter-spacing: -0.374px;
+            color: rgba(255,255,255,0.72);
+            margin-bottom: 32px;
         }
 
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .cta-buttons {
+        .hero-ctas {
             display: flex;
-            gap: 1.5rem;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            animation: slideInRight 1s ease-out 0.6s backwards;
-        }
-
-        .cta-button {
-            padding: 1rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.5px;
-            border-radius: 12px;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .cta-primary {
-            background: linear-gradient(135deg, var(--neon-pink), #FF1B6D);
-            color: white;
-            box-shadow: 0 0 20px rgba(255, 0, 110, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 0, 110, 0.5);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 40px rgba(255, 0, 110, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.2);
-            background: linear-gradient(135deg, #FF1B6D, var(--neon-pink));
-        }
-
-        .cta-primary:active {
-            transform: translateY(-2px);
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: var(--neon-blue);
-            border: 2px solid var(--neon-blue);
-            transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
-        }
-
-        .cta-secondary:hover {
-            background: rgba(0, 217, 255, 0.1);
-            color: var(--light-text);
-            transform: translateY(-4px);
-            box-shadow: 0 0 40px rgba(0, 217, 255, 0.5);
-            border-color: var(--neon-blue);
         }
 
         /* ============================================
-           CONTAINER & SECTION STYLES
-           ============================================ */
+           BUTTONS — APPLE SYSTEM
+        ============================================ */
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .btn-primary {
+            display: inline-block;
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 2.41;
+            letter-spacing: 0;
+            color: var(--white);
+            background: var(--apple-blue);
+            padding: 0 20px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
+        .btn-primary:hover {
+            background: #0077ed;
+        }
+
+        .btn-primary:active {
+            background: #006edb;
+        }
+
+        .btn-pill-dark {
+            display: inline-block;
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.47;
+            letter-spacing: -0.374px;
+            color: var(--link-blue-dark);
+            background: transparent;
+            padding: 8px 20px;
+            border-radius: 980px;
+            border: 1px solid var(--link-blue-dark);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-pill-dark:hover {
+            text-decoration: underline;
+            background: rgba(0,102,204,0.08);
+        }
+
+        .btn-pill-light-bg {
+            display: inline-block;
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.47;
+            letter-spacing: -0.374px;
+            color: var(--link-blue-light);
+            background: transparent;
+            padding: 8px 20px;
+            border-radius: 980px;
+            border: 1px solid var(--link-blue-light);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-pill-light-bg:hover {
+            text-decoration: underline;
+            background: rgba(0,102,204,0.06);
+        }
+
+        .learn-link {
+            display: inline-block;
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            letter-spacing: -0.374px;
+            line-height: 1.47;
+            color: var(--link-blue-dark);
+            text-decoration: none;
+        }
+
+        .learn-link:hover {
+            text-decoration: underline;
+        }
+
+        .learn-link-light {
+            color: var(--link-blue-light);
+        }
+
+        .learn-link-light:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           SECTION SHARED
+        ============================================ */
+
+        .section-dark {
+            background: var(--black);
+            padding: 120px 22px;
+        }
+
+        .section-light {
+            background: var(--light-gray);
+            padding: 120px 22px;
+        }
+
+        .section-dark-alt {
+            background: var(--dark-surface-1);
+            padding: 120px 22px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
         }
 
         .section-tag {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--neon-blue);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            letter-spacing: -0.374px;
+            line-height: 1.47;
+            margin-bottom: 8px;
         }
 
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
-            color: var(--light-text);
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .section-tag-dark {
+            color: var(--link-blue-dark);
         }
 
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
+        .section-tag-light {
+            color: var(--link-blue-light);
+        }
+
+        .section-title-dark {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.10;
+            letter-spacing: normal;
+            color: var(--white);
+            margin-bottom: 17px;
+            text-align: center;
+        }
+
+        .section-title-light {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.10;
+            letter-spacing: normal;
+            color: var(--near-black);
+            margin-bottom: 17px;
+            text-align: center;
+        }
+
+        .section-body-dark {
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.47;
+            letter-spacing: -0.374px;
+            color: rgba(255,255,255,0.72);
+            text-align: center;
             max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
+            margin: 0 auto 56px;
+        }
+
+        .section-body-light {
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.47;
+            letter-spacing: -0.374px;
+            color: rgba(0,0,0,0.56);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 56px;
+        }
+
+        .section-header-centered {
+            text-align: center;
+            margin-bottom: 56px;
         }
 
         /* ============================================
-           SERVICES SECTION
-           ============================================ */
-
-        .services {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 10;
-        }
+           SERVICES — DARK SECTION, CARD GRID
+        ============================================ */
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
         .service-card {
-            background: rgba(26, 31, 58, 0.6);
-            border: 2px solid rgba(0, 217, 255, 0.2);
-            padding: 3rem 2rem;
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            backdrop-filter: blur(10px);
-            animation: cardFadeIn 0.8s ease-out backwards;
-        }
-
-        .service-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .service-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .service-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes cardFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .service-card:hover::before {
-            left: 100%;
-        }
-
-        .service-card:hover {
-            border-color: var(--neon-blue);
-            background: rgba(26, 31, 58, 0.9);
-            transform: translateY(-8px);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.3), inset 0 0 20px rgba(0, 217, 255, 0.1);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            animation: iconBounce 2s ease-in-out infinite;
-            filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3));
-        }
-
-        .service-card:nth-child(1) .service-icon {
-            animation-delay: 0s;
-        }
-
-        .service-card:nth-child(2) .service-icon {
-            animation-delay: 0.2s;
-        }
-
-        .service-card:nth-child(3) .service-icon {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes iconBounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .service-card h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--light-text);
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: var(--text-muted);
-            transition: color 0.3s;
-        }
-
-        .service-card:hover p {
-            color: var(--light-text);
-        }
-
-        /* ============================================
-           HOW WE WORK SECTION
-           ============================================ */
-
-        .how-we-work {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .work-process {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .process-step {
-            background: rgba(26, 31, 58, 0.8);
-            border: 2px solid var(--neon-blue);
-            padding: 2.5rem 2rem;
-            position: relative;
-            text-align: center;
+            background: var(--dark-surface-2);
             border-radius: 12px;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.1);
+            padding: 40px 32px 40px;
+            position: relative;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
         }
 
-        .process-step:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 40px rgba(0, 217, 255, 0.3);
-            border-color: var(--neon-pink);
-            background: rgba(26, 31, 58, 0.95);
-        }
-
-        .step-number {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
-            border-radius: 50%;
+        .service-card-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--apple-blue);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: white;
-            border: 3px solid var(--dark-bg);
-            box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+            margin-bottom: 24px;
         }
 
-        .process-step h4 {
-            font-size: 1.3rem;
+        .service-card-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--white);
+        }
+
+        .service-card-title {
+            font-family: var(--font-display);
+            font-size: 21px;
             font-weight: 700;
-            color: var(--neon-blue);
-            margin: 1.5rem 0 1rem;
-            letter-spacing: -0.5px;
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+            line-height: 1.19;
+            letter-spacing: 0.231px;
+            color: var(--white);
+            margin-bottom: 11px;
         }
 
-        .process-step p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.6;
+        .service-card-body {
+            font-family: var(--font-text);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.43;
+            letter-spacing: -0.224px;
+            color: rgba(255,255,255,0.64);
+            flex: 1;
+            margin-bottom: 24px;
         }
 
         /* ============================================
-           FAQ SECTION
-           ============================================ */
+           HOW WE WORK — LIGHT SECTION
+        ============================================ */
 
-        .faq {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 10;
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
         }
 
-        .faq-container {
-            max-width: 800px;
+        .process-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 32px 20px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        .process-number {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.10;
+            color: var(--apple-blue);
+            margin-bottom: 14px;
+            letter-spacing: normal;
+        }
+
+        .process-title {
+            font-family: var(--font-display);
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.24;
+            letter-spacing: -0.374px;
+            color: var(--near-black);
+            margin-bottom: 8px;
+        }
+
+        .process-body {
+            font-family: var(--font-text);
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.33;
+            letter-spacing: -0.12px;
+            color: rgba(0,0,0,0.56);
+        }
+
+        /* ============================================
+           MARQUEE STRIP
+        ============================================ */
+
+        .marquee-section {
+            background: var(--near-black);
+            padding: 32px 0;
+            overflow: hidden;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 64px;
+            animation: marquee 22s linear infinite;
+            white-space: nowrap;
+            width: max-content;
+        }
+
+        .marquee-item {
+            font-family: var(--font-display);
+            font-size: 17px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.32);
+            letter-spacing: 0.196px;
+            flex-shrink: 0;
+        }
+
+        .marquee-dot {
+            color: var(--apple-blue);
+            margin-left: 64px;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* ============================================
+           STATS BAR — LIGHT
+        ============================================ */
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(0,0,0,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 56px;
+        }
+
+        .stat-cell {
+            background: var(--white);
+            padding: 40px 32px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.07;
+            letter-spacing: -0.28px;
+            color: var(--near-black);
+            display: block;
+        }
+
+        .stat-label {
+            font-family: var(--font-text);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.29;
+            letter-spacing: -0.224px;
+            color: rgba(0,0,0,0.56);
+            display: block;
+            margin-top: 8px;
+        }
+
+        /* ============================================
+           FAQ — DARK
+        ============================================ */
+
+        .faq-list {
+            max-width: 680px;
             margin: 0 auto;
-            margin-top: 4rem;
         }
 
         .faq-item {
-            background: rgba(26, 31, 58, 0.6);
-            border-left: 4px solid var(--neon-pink);
-            margin-bottom: 1.5rem;
-            border-radius: 12px;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .faq-item:hover {
-            border-left-color: var(--neon-blue);
-            background: rgba(26, 31, 58, 0.9);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.15);
+        .faq-item:first-child {
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .faq-question {
-            padding: 2rem;
+            font-family: var(--font-display);
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.47;
+            letter-spacing: -0.374px;
+            color: var(--white);
+            padding: 20px 0;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 600;
-            transition: all 0.3s;
+            gap: 16px;
             user-select: none;
+            transition: color 0.2s;
         }
 
         .faq-question:hover {
-            color: var(--neon-blue);
+            color: var(--link-blue-dark);
         }
 
-        .faq-answer {
-            padding: 0 2rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            line-height: 1.8;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 2rem 2rem 2rem;
-            max-height: 500px;
-        }
-
-        .faq-toggle {
-            font-size: 1.8rem;
-            transition: transform 0.3s;
-            color: var(--neon-blue);
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        /* ============================================
-           CONTACT SECTION
-           ============================================ */
-
-        .contact {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 3rem auto;
-            background: rgba(26, 31, 58, 0.8);
-            padding: 3.5rem;
-            border: 2px solid rgba(0, 217, 255, 0.3);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 40px rgba(0, 217, 255, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            color: var(--neon-blue);
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(0, 217, 255, 0.2);
-            color: var(--light-text);
-            font-family: 'Outfit', sans-serif;
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--text-muted);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--neon-blue);
-            background: rgba(0, 217, 255, 0.05);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        /* ============================================
-           SOCIAL SECTION
-           ============================================ */
-
-        .social-section {
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+        .faq-chevron {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            font-size: 2rem;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border-radius: 12px;
-            border: 2px solid rgba(255, 0, 110, 0.5);
-            box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+            transition: transform 0.3s;
         }
 
-        .social-link:hover {
-            transform: translateY(-8px) scale(1.1);
-            background: linear-gradient(135deg, var(--neon-blue), #0084FF);
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 40px rgba(0, 217, 255, 0.5);
+        .faq-chevron svg {
+            width: 12px;
+            height: 12px;
+            stroke: var(--link-blue-dark);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            font-family: var(--font-text);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.43;
+            letter-spacing: -0.224px;
+            color: rgba(255,255,255,0.64);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding-bottom: 20px;
+        }
+
+        /* ============================================
+           CONTACT — LIGHT
+        ============================================ */
+
+        .contact-form-wrap {
+            max-width: 560px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 48px 40px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-text);
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.33;
+            letter-spacing: -0.12px;
+            color: rgba(0,0,0,0.8);
+            margin-bottom: 6px;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 10px 14px;
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.47;
+            letter-spacing: -0.374px;
+            color: var(--near-black);
+            background: #fafafc;
+            border: none;
+            border-radius: 11px;
+            outline: none;
+            transition: box-shadow 0.2s;
+            appearance: none;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: rgba(0,0,0,0.28);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            box-shadow: 0 0 0 2px var(--apple-blue);
+            background: var(--white);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            display: block;
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 2.41;
+            letter-spacing: 0;
+            color: var(--white);
+            background: var(--apple-blue);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 8px;
+        }
+
+        .form-submit:hover {
+            background: #0077ed;
+        }
+
+        .form-submit:active {
+            background: #006edb;
+        }
+
+        /* ============================================
+           INSTAGRAM / SOCIAL — DARK SECTION
+        ============================================ */
+
+        .social-hero {
+            background: var(--black);
+            padding: 80px 22px;
+            text-align: center;
+        }
+
+        .social-label {
+            font-family: var(--font-text);
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.33;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 16px;
+        }
+
+        .social-handle {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.10;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-text);
+            font-size: 17px;
+            font-weight: 400;
+            letter-spacing: -0.374px;
+            color: var(--link-blue-dark);
+            text-decoration: none;
+            border: 1px solid var(--link-blue-dark);
+            border-radius: 980px;
+            padding: 10px 24px;
+            transition: all 0.2s;
+        }
+
+        .social-btn:hover {
+            background: rgba(41,151,255,0.08);
+            text-decoration: underline;
         }
 
         /* ============================================
            FOOTER
-           ============================================ */
+        ============================================ */
 
         footer {
-            background: rgba(10, 14, 39, 0.8);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 2px solid rgba(0, 217, 255, 0.2);
-            position: relative;
-            z-index: 10;
-            backdrop-filter: blur(10px);
+            background: var(--light-gray);
+            padding: 40px 22px;
+            border-top: 1px solid rgba(0,0,0,0.08);
         }
 
-        .footer-links {
+        .footer-inner {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .footer-links-row {
             display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            margin-bottom: 2rem;
+            gap: 32px;
             flex-wrap: wrap;
+            margin-bottom: 20px;
         }
 
-        .footer-links a {
-            color: var(--text-muted);
+        .footer-link {
+            font-family: var(--font-text);
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.33;
+            letter-spacing: -0.12px;
+            color: rgba(0,0,0,0.56);
             text-decoration: none;
-            transition: all 0.3s;
-            font-size: 0.9rem;
+            transition: color 0.2s;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
 
-        .footer-links a:hover {
-            color: var(--neon-blue);
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+        .footer-link:hover {
+            color: var(--link-blue-light);
         }
 
-        .footer-text {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        .footer-copy {
+            font-family: var(--font-text);
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.33;
+            letter-spacing: -0.12px;
+            color: rgba(0,0,0,0.4);
+        }
+
+        .footer-nepali {
+            font-family: var(--font-nepali);
+            margin-left: 4px;
         }
 
         /* ============================================
            POLICY MODAL
-           ============================================ */
+        ============================================ */
 
-        .policy-modal {
+        .modal-overlay {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 99999;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 48px 40px;
+            max-width: 640px;
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 10000;
+            max-height: 80vh;
             overflow-y: auto;
-            backdrop-filter: blur(5px);
-        }
-
-        .policy-content {
-            max-width: 800px;
-            margin: 4rem auto;
-            background: var(--dark-card);
-            padding: 3rem;
-            border: 2px solid var(--neon-blue);
             position: relative;
-            border-radius: 16px;
-            box-shadow: 0 0 40px rgba(0, 217, 255, 0.2);
+            box-shadow: rgba(0,0,0,0.28) 0 20px 60px;
         }
 
-        .close-modal {
+        .modal-close {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            background: rgba(0,0,0,0.08);
             border: none;
-            color: white;
-            font-size: 2rem;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            font-weight: bold;
             border-radius: 50%;
-            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
         }
 
-        .close-modal:hover {
-            transform: rotate(90deg);
-            box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+        .modal-close:hover {
+            background: rgba(0,0,0,0.14);
         }
 
-        .policy-content h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--neon-blue);
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        .modal-close svg {
+            width: 12px;
+            height: 12px;
+            stroke: var(--near-black);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
         }
 
-        .policy-content h3 {
-            color: var(--neon-pink);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+        .modal-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.14;
+            letter-spacing: 0.196px;
+            color: var(--near-black);
+            margin-bottom: 24px;
         }
 
-        .policy-content p {
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            color: var(--text-muted);
+        .modal-h3 {
+            font-family: var(--font-display);
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.24;
+            letter-spacing: -0.374px;
+            color: var(--near-black);
+            margin: 24px 0 8px;
+        }
+
+        .modal-p {
+            font-family: var(--font-text);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.43;
+            letter-spacing: -0.224px;
+            color: rgba(0,0,0,0.64);
+            margin-bottom: 8px;
         }
 
         /* ============================================
-           RESPONSIVE DESIGN
-           ============================================ */
+           MOBILE NAV OVERLAY
+        ============================================ */
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 9998;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
 
-            .logo {
-                font-size: 1.5rem;
-            }
+        .mobile-menu.active {
+            display: flex;
+        }
 
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(10, 14, 39, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1rem;
-                z-index: 999;
-                border-bottom: 2px solid rgba(0, 217, 255, 0.2);
-            }
+        .mobile-menu a {
+            font-family: var(--font-display);
+            font-size: 34px;
+            font-weight: 600;
+            line-height: 1.47;
+            letter-spacing: -0.374px;
+            color: var(--white);
+            text-decoration: none;
+            padding: 14px 0;
+            transition: color 0.2s;
+        }
 
-            .nav-links.active {
-                display: flex;
-            }
+        .mobile-menu a:hover {
+            color: var(--link-blue-dark);
+        }
 
-            .mobile-menu-toggle {
-                display: block;
-            }
+        .mobile-menu-close {
+            position: absolute;
+            top: 14px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: rgba(255,255,255,0.6);
+            font-size: 24px;
+            line-height: 48px;
+        }
 
-            .hero {
-                padding: 8rem 1.5rem 4rem;
-            }
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
 
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .cta-button {
-                width: 100%;
-            }
-
-            .services {
-                padding: 4rem 1.5rem;
-            }
-
+        @media (max-width: 834px) {
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
-
-            .how-we-work {
-                padding: 4rem 1.5rem;
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-
-            .work-process {
+            .stats-row {
                 grid-template-columns: 1fr;
-                gap: 1rem;
             }
-
-            .faq {
-                padding: 4rem 1.5rem;
-            }
-
-            .contact {
-                padding: 4rem 1.5rem;
-            }
-
-            .contact-form {
-                padding: 2rem;
-            }
-
-            .tagline-nepali {
-                font-size: 1.8rem;
-            }
-
             .hero h1 {
-                font-size: clamp(2rem, 6vw, 3.5rem);
+                font-size: 40px;
             }
-
-            .section-title {
-                font-size: clamp(2rem, 5vw, 3rem);
-            }
-
-            .service-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .social-link {
-                width: 70px;
-                height: 70px;
-                font-size: 1.5rem;
-            }
-
-            .neon-blob {
-                filter: blur(40px);
+            .section-title-dark,
+            .section-title-light {
+                font-size: 32px;
             }
         }
 
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: flex; }
+            .hero h1 { font-size: 32px; }
+            .hero-nepali { font-size: 21px; }
+            .process-grid { grid-template-columns: 1fr; }
+            .contact-form-wrap { padding: 32px 22px; }
+            .modal-box { padding: 32px 22px; }
+            .stat-number { font-size: 40px; }
+            .social-handle { font-size: 28px; }
+            .footer-links-row { gap: 20px; }
+        }
+
         @media (max-width: 480px) {
-            :root {
-                font-size: 14px;
-            }
+            .hero { padding: 80px 16px 60px; }
+            .hero h1 { font-size: 28px; }
+            .hero-nepali { font-size: 18px; }
+            .hero-ctas { flex-direction: column; align-items: center; }
+            .section-dark, .section-light, .section-dark-alt { padding: 80px 16px; }
+        }
 
-            nav {
-                padding: 1rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .nav-links {
-                gap: 0.5rem;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                padding: 6rem 1rem 2rem;
-                min-height: auto;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .tagline-nepali {
-                font-size: 1.4rem;
-                margin: 1rem 0;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .services-grid {
-                gap: 1rem;
-            }
-
-            .service-card {
-                padding: 1.5rem 1rem;
-            }
-
-            .service-icon {
-                font-size: 2.5rem;
-            }
-
-            .work-process {
-                gap: 0.8rem;
-            }
-
-            .process-step {
-                padding: 1.5rem 1rem;
-            }
-
-            .faq-question {
-                padding: 1.5rem;
-            }
-
-            .faq-answer {
-                padding: 0 1.5rem;
-            }
-
-            .faq-item.active .faq-answer {
-                padding: 0 1.5rem 1.5rem 1.5rem;
-            }
-
-            .contact-form {
-                padding: 1.5rem;
-            }
-
-            .form-group {
-                margin-bottom: 1.5rem;
-            }
-
-            .policy-content {
-                padding: 2rem 1.5rem;
-                margin: 2rem 1rem;
-            }
+        /* Focus accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--apple-blue);
+            outline-offset: 3px;
         }
     </style>
 </head>
 <body>
-    <!-- Animated Neon Background -->
-    <div class="bg-animation">
-        <div class="neon-blob blob-1"></div>
-        <div class="neon-blob blob-2"></div>
-        <div class="neon-blob blob-3"></div>
-        <div class="neon-blob blob-4"></div>
-        <div class="grid-overlay"></div>
+
+<!-- ===================== NAVIGATION ===================== -->
+<nav id="nav">
+    <div class="nav-inner">
+        <a class="nav-logo" href="#home">Comic Sathi</a>
+        <ul class="nav-links" id="navDesktop">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#how-we-work">How It Works</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" class="nav-cta">Start Now</a></li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
     </div>
+</nav>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">COMIC SATHI</div>
-            <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#how-we-work">How It Works</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- Mobile Nav -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">&#x2715;</button>
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#how-we-work" onclick="closeMenu()">How It Works</a>
+    <a href="#faq" onclick="closeMenu()">FAQ</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Make Your Brand Go Viral!</h1>
-            <div class="tagline-nepali">हसाउँछौं, बिक्री बढाउँछौं।</div>
-            <p class="hero-subtitle">Turn your brand into a cultural moment. We create memes, graphics, and campaigns that people actually want to share. Let's make marketing fun again.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="cta-button cta-primary">Start Collaborating</a>
-                <a href="#services" class="cta-button cta-secondary">Explore Our Work</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">WHAT WE DO</div>
-                <h2 class="section-title">Creative Services</h2>
-                <p class="section-subtitle">Strategic meme marketing, stunning graphics, and powerful brand promotion designed to make your message unforgettable.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">😂</div>
-                    <h3>Meme Marketing</h3>
-                    <p>We craft shareable, relatable memes that resonate with your audience. From trending formats to custom concepts, we make your brand the talk of social media.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Graphic Design</h3>
-                    <p>Eye-catching visuals that stop the scroll. We design social posts, banners, infographics, and promotional materials that stand out in the digital noise.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3>Brand Promotion</h3>
-                    <p>Strategic campaigns that build your online presence. We help your brand reach the right people with the right message at the right time.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How We Work Section -->
-    <section class="how-we-work" id="how-we-work">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">OUR PROCESS</div>
-                <h2 class="section-title">How We Work</h2>
-                <p class="section-subtitle">A collaborative journey from concept to viral moment.</p>
-            </div>
-            <div class="work-process">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h4>Discovery</h4>
-                    <p>We dive deep into your brand, audience, and goals to understand what makes you unique.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h4>Strategy</h4>
-                    <p>We develop a customized content strategy that aligns with your vision and target audience.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h4>Creation</h4>
-                    <p>Our creative team crafts engaging memes and graphics that capture your brand voice perfectly.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <h4>Collaboration</h4>
-                    <p>We work closely with you to refine and perfect the content until it's exactly right.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">05</div>
-                    <h4>Launch</h4>
-                    <p>We help you distribute your content across platforms to maximize reach and engagement.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">COMMON QUESTIONS</div>
-                <h2 class="section-title">Got Questions?</h2>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>How does meme marketing actually work?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Meme marketing works because it's relatable, entertaining, and shareable. We create content that makes people laugh while subtly reinforcing your brand message. When memes resonate, they spread organically—reaching thousands without expensive ad spend.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>What makes Comic Sathi different?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        We specialize exclusively in meme marketing and creative graphics. Our team lives online, understands internet culture, and knows how to make content that actually gets shared.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>How long until I see results?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Results can come quickly if content resonates. We typically recommend a 3-month collaboration to build momentum and see meaningful engagement growth.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Do you work with all types of businesses?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        We work with brands that understand the value of creative content and have a social media presence. If you're ready to try something bold, we're your team.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>What's the first step?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Reach out through our contact form. We'll schedule a consultation to discuss your brand, goals, and what you want to achieve. No commitment needed.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Can I see examples of your work?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Check out our Instagram @comic.sathi to see our latest work. We're constantly creating new content and building our portfolio with fresh creative work.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Section -->
-    <section class="social-section">
-        <div class="container">
-            <h2 class="section-title">Follow Our Journey</h2>
-            <p style="font-size: 1.05rem; margin-bottom: 2rem; color: var(--text-muted);">See our latest memes and creative work in action</p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/comic.sathi" target="_blank" class="social-link" title="Follow us on Instagram">
-                    📱
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">GET IN TOUCH</div>
-                <h2 class="section-title">Let's Create Magic</h2>
-                <p class="section-subtitle">Ready to make your brand unforgettable? Drop us a message and let's start the conversation.</p>
-            </div>
-            
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="brand">Brand or Business Name</label>
-                        <input type="text" id="brand" name="brand" placeholder="Your Brand" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Tell Us About Your Project</label>
-                        <textarea id="message" name="message" placeholder="What's your vision?" required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button cta-primary" style="width: 100%;">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-links">
-            <a href="#" onclick="showPolicy('privacy'); return false;">Privacy Policy</a>
-            <a href="#" onclick="showPolicy('cookies'); return false;">Cookie Policy</a>
-            <a href="mailto:sathicomic@gmail.com">Email Us</a>
-        </div>
-        <p class="footer-text">&copy; 2024 Comic Sathi. हसाउँछौं, बिक्री बढाउँछौं। 🚀</p>
-    </footer>
-
-    <!-- Privacy Policy Modal -->
-    <div id="privacyModal" class="policy-modal">
-        <div class="policy-content">
-            <button class="close-modal" onclick="closePolicy()">×</button>
-            <h2>Privacy Policy</h2>
-            
-            <p><strong>Last Updated: March 2024</strong></p>
-            
-            <h3>Information We Collect</h3>
-            <p>When you contact us through our website, we collect information you voluntarily provide, including your name, email address, business name, and project details.</p>
-            
-            <h3>How We Use Your Information</h3>
-            <p>We use the information you provide to respond to inquiries, provide services, communicate about our offerings, and improve our website and services.</p>
-            
-            <h3>Data Protection</h3>
-            <p>We take reasonable measures to protect your personal information from unauthorized access. However, no internet transmission is completely secure.</p>
-            
-            <h3>Third-Party Sharing</h3>
-            <p>We do not sell, trade, or rent your personal information. We may share information with service providers necessary for operations.</p>
-            
-            <h3>Your Rights</h3>
-            <p>You have the right to request access to, correction of, or deletion of your personal information. Contact us at sathicomic@gmail.com for data requests.</p>
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+    <div class="hero-inner">
+        <p class="hero-eyebrow">Meme Marketing Agency</p>
+        <h1>Make Your Brand Go Viral.</h1>
+        <div class="hero-nepali">हसाउँछौं, बिक्री बढाउँछौं।</div>
+        <p class="hero-sub">Turn your brand into a cultural moment. We create memes, graphics, and campaigns people actually want to share.</p>
+        <div class="hero-ctas">
+            <a href="#contact" class="btn-primary">Start Collaborating</a>
+            <a href="#services" class="btn-pill-dark">Explore Services</a>
         </div>
     </div>
+</section>
 
-    <!-- Cookie Policy Modal -->
-    <div id="cookieModal" class="policy-modal">
-        <div class="policy-content">
-            <button class="close-modal" onclick="closePolicy()">×</button>
-            <h2>Cookie Policy</h2>
-            
-            <p><strong>Last Updated: March 2024</strong></p>
-            
-            <h3>What Are Cookies?</h3>
-            <p>Cookies are small text files placed on your device when you visit our website. They help us provide a better experience by remembering preferences.</p>
-            
-            <h3>Types of Cookies We Use</h3>
-            
-            <h4 style="color: var(--neon-pink); margin-top: 1rem;">Essential Cookies</h4>
-            <p>Necessary for the website to function properly. They enable basic features like page navigation.</p>
-            
-            <h4 style="color: var(--neon-pink); margin-top: 1rem;">Analytics Cookies</h4>
-            <p>Help us understand how visitors interact with our website, allowing us to improve services.</p>
-            
-            <h3>Managing Cookies</h3>
-            <p>Most web browsers allow you to control cookies through settings. You can block or delete cookies, though this may affect website functionality.</p>
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee-section">
+    <div class="marquee-track" aria-hidden="true">
+        <span class="marquee-item">Meme Marketing</span>
+        <span class="marquee-item marquee-dot">&#8226;</span>
+        <span class="marquee-item">Graphic Design</span>
+        <span class="marquee-item marquee-dot">&#8226;</span>
+        <span class="marquee-item">Brand Promotion</span>
+        <span class="marquee-item marquee-dot">&#8226;</span>
+        <span class="marquee-item">Social Strategy</span>
+        <span class="marquee-item marquee-dot">&#8226;</span>
+        <span class="marquee-item">Viral Content</span>
+        <span class="marquee-item marquee-dot">&#8226;</span>
+        <span class="marquee-item">Meme Marketing</span>
+        <span class="marquee-item marquee-dot">&#8226;</span>
+        <span class="marquee-item">Graphic Design</span>
+        <span class="marquee-item marquee-dot">&#8226;</span>
+        <span class="marquee-item">Brand Promotion</span>
+        <span class="marquee-item marquee-dot">&#8226;</span>
+        <span class="marquee-item">Social Strategy</span>
+        <span class="marquee-item marquee-dot">&#8226;</span>
+        <span class="marquee-item">Viral Content</span>
+        <span class="marquee-item marquee-dot">&#8226;</span>
+    </div>
+</div>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="section-dark" id="services">
+    <div class="container">
+        <div class="section-header-centered">
+            <p class="section-tag section-tag-dark">What We Do</p>
+            <h2 class="section-title-dark">Creative Services.</h2>
+            <p class="section-body-dark">Strategic meme marketing, stunning graphics, and powerful brand promotion designed to make your message unforgettable.</p>
+        </div>
+        <div class="services-grid">
+            <!-- Card 1 -->
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="white"/>
+                        <circle cx="8.5" cy="9.5" r="1.5" fill="white"/>
+                        <circle cx="15.5" cy="9.5" r="1.5" fill="white"/>
+                        <path d="M8.5 14.5s1 2 3.5 2 3.5-2 3.5-2" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+                <h3 class="service-card-title">Meme Marketing</h3>
+                <p class="service-card-body">We craft shareable, relatable memes that resonate with your audience. From trending formats to custom concepts, we make your brand the talk of social media.</p>
+                <a href="#contact" class="learn-link">Start now &rsaquo;</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="white"/>
+                    </svg>
+                </div>
+                <h3 class="service-card-title">Graphic Design</h3>
+                <p class="service-card-body">Eye-catching visuals that stop the scroll. We design social posts, banners, infographics, and promotional materials that stand out in the digital noise.</p>
+                <a href="#contact" class="learn-link">Start now &rsaquo;</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" fill="white"/>
+                    </svg>
+                </div>
+                <h3 class="service-card-title">Brand Promotion</h3>
+                <p class="service-card-body">Strategic campaigns that build your online presence. We help your brand reach the right people with the right message at the right time.</p>
+                <a href="#contact" class="learn-link">Start now &rsaquo;</a>
+            </div>
         </div>
     </div>
+</section>
 
-    <script>
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
+<!-- ===================== STATS — LIGHT ===================== -->
+<section class="section-light">
+    <div class="container">
+        <div class="section-header-centered">
+            <p class="section-tag section-tag-light">Why It Works</p>
+            <h2 class="section-title-light">Marketing that makes people laugh, share, and buy.</h2>
+            <p class="section-body-light">Memes are the internet's native language. Content that entertains earns organic reach that no ad budget can replicate.</p>
+        </div>
+        <div class="stats-row">
+            <div class="stat-cell">
+                <span class="stat-number">3x</span>
+                <span class="stat-label">Higher organic reach than standard branded posts</span>
+            </div>
+            <div class="stat-cell">
+                <span class="stat-number">60%</span>
+                <span class="stat-label">Of users share meme content with friends weekly</span>
+            </div>
+            <div class="stat-cell">
+                <span class="stat-number">10x</span>
+                <span class="stat-label">More cost-effective than traditional paid campaigns</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-        // Close menu when link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
+<!-- ===================== HOW WE WORK ===================== -->
+<section class="section-light" id="how-we-work" style="background: #f5f5f7; padding-top: 0;">
+    <div class="container">
+        <div class="section-header-centered">
+            <p class="section-tag section-tag-light">Our Process</p>
+            <h2 class="section-title-light">From brief to viral — five steps.</h2>
+            <p class="section-body-light">A collaborative journey from concept to cultural moment.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">01</div>
+                <div class="process-title">Discovery</div>
+                <div class="process-body">We dive deep into your brand, audience, and goals to understand what makes you unique.</div>
+            </div>
+            <div class="process-card">
+                <div class="process-number">02</div>
+                <div class="process-title">Strategy</div>
+                <div class="process-body">We develop a customized content strategy aligned with your vision and target audience.</div>
+            </div>
+            <div class="process-card">
+                <div class="process-number">03</div>
+                <div class="process-title">Creation</div>
+                <div class="process-body">Our creative team crafts engaging memes and graphics that capture your brand voice perfectly.</div>
+            </div>
+            <div class="process-card">
+                <div class="process-number">04</div>
+                <div class="process-title">Refinement</div>
+                <div class="process-body">We work closely with you to refine content until it is exactly right — nothing ships without your approval.</div>
+            </div>
+            <div class="process-card">
+                <div class="process-number">05</div>
+                <div class="process-title">Launch</div>
+                <div class="process-body">We help you distribute content across platforms to maximize reach and engagement.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== INSTAGRAM ===================== -->
+<section class="social-hero" id="social">
+    <div class="container">
+        <div class="social-label">Follow Our Work</div>
+        <div class="social-handle">@comic.sathi</div>
+        <p style="font-family:var(--font-text);font-size:17px;color:rgba(255,255,255,0.56);letter-spacing:-0.374px;line-height:1.47;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;margin-bottom:28px;">See our latest memes and creative work. Updated constantly. No filler, just fire.</p>
+        <a href="https://www.instagram.com/comic.sathi" target="_blank" rel="noopener" class="social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            Follow on Instagram
+        </a>
+    </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section-dark" id="faq">
+    <div class="container">
+        <div class="section-header-centered">
+            <p class="section-tag section-tag-dark">Common Questions</p>
+            <h2 class="section-title-dark">Got Questions?</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0">
+                    <span>How does meme marketing actually work?</span>
+                    <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+                </div>
+                <div class="faq-answer">Meme marketing works because it is relatable, entertaining, and shareable. We create content that makes people laugh while subtly reinforcing your brand message. When memes resonate, they spread organically — reaching thousands without expensive ad spend.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0">
+                    <span>What makes Comic Sathi different?</span>
+                    <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+                </div>
+                <div class="faq-answer">We specialize exclusively in meme marketing and creative graphics. Our team lives online, understands internet culture deeply, and knows how to make content that actually gets shared — not just seen.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0">
+                    <span>How long until I see results?</span>
+                    <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+                </div>
+                <div class="faq-answer">Results can come quickly when content resonates. We typically recommend a 3-month collaboration to build momentum and see meaningful, consistent engagement growth.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0">
+                    <span>Do you work with all types of businesses?</span>
+                    <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+                </div>
+                <div class="faq-answer">We work with brands that understand the value of creative content and have a social media presence. If you are ready to try something bold and unconventional, we are your team.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0">
+                    <span>What is the first step?</span>
+                    <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+                </div>
+                <div class="faq-answer">Reach out through our contact form. We will schedule a consultation to discuss your brand, goals, and what you want to achieve. No commitment needed for the first conversation.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" role="button" tabindex="0">
+                    <span>Can I see examples of your work?</span>
+                    <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+                </div>
+                <div class="faq-answer">Check out our Instagram @comic.sathi to see our latest creative work. We are constantly creating new content and building our portfolio with fresh, culturally relevant material.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CONTACT — LIGHT ===================== -->
+<section class="section-light" id="contact">
+    <div class="container">
+        <div class="section-header-centered">
+            <p class="section-tag section-tag-light">Get In Touch</p>
+            <h2 class="section-title-light">Let's Create Together.</h2>
+            <p class="section-body-light">Ready to make your brand unforgettable? Drop us a message and let's start the conversation.</p>
+        </div>
+        <div class="contact-form-wrap">
+            <form id="contactForm" novalidate>
+                <div class="form-group">
+                    <label class="form-label" for="name">Your Name</label>
+                    <input class="form-input" type="text" id="name" name="name" placeholder="Jane Smith" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input class="form-input" type="email" id="email" name="email" placeholder="you@yourbrand.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="brand">Brand or Business Name</label>
+                    <input class="form-input" type="text" id="brand" name="brand" placeholder="Your Brand" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="message">Tell Us About Your Project</label>
+                    <textarea class="form-input form-textarea" id="message" name="message" placeholder="What is your vision?" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-links-row">
+            <button class="footer-link" onclick="openModal('privacy')">Privacy Policy</button>
+            <button class="footer-link" onclick="openModal('cookies')">Cookie Policy</button>
+            <a class="footer-link" href="mailto:sathicomic@gmail.com">sathicomic@gmail.com</a>
+            <a class="footer-link" href="https://www.instagram.com/comic.sathi" target="_blank" rel="noopener">@comic.sathi</a>
+        </div>
+        <p class="footer-copy">
+            Copyright &copy; 2024 Comic Sathi.
+            <span class="footer-nepali">हसाउँछौं, बिक्री बढाउँछौं।</span>
+            All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<!-- ===================== PRIVACY MODAL ===================== -->
+<div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('privacy')" aria-label="Close">
+            <svg viewBox="0 0 12 12"><line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/></svg>
+        </button>
+        <h2 class="modal-title" id="privacyTitle">Privacy Policy</h2>
+        <p class="modal-p"><strong>Last Updated: March 2024</strong></p>
+        <h3 class="modal-h3">Information We Collect</h3>
+        <p class="modal-p">When you contact us through our website, we collect information you voluntarily provide, including your name, email address, business name, and project details.</p>
+        <h3 class="modal-h3">How We Use Your Information</h3>
+        <p class="modal-p">We use the information you provide to respond to inquiries, provide services, communicate about our offerings, and improve our website and services.</p>
+        <h3 class="modal-h3">Data Protection</h3>
+        <p class="modal-p">We take reasonable measures to protect your personal information from unauthorized access. However, no internet transmission is completely secure.</p>
+        <h3 class="modal-h3">Third-Party Sharing</h3>
+        <p class="modal-p">We do not sell, trade, or rent your personal information. We may share information with service providers necessary for operations.</p>
+        <h3 class="modal-h3">Your Rights</h3>
+        <p class="modal-p">You have the right to request access to, correction of, or deletion of your personal information. Contact us at sathicomic@gmail.com for data requests.</p>
+    </div>
+</div>
+
+<!-- ===================== COOKIE MODAL ===================== -->
+<div class="modal-overlay" id="cookiesModal" role="dialog" aria-modal="true" aria-labelledby="cookiesTitle">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('cookies')" aria-label="Close">
+            <svg viewBox="0 0 12 12"><line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/></svg>
+        </button>
+        <h2 class="modal-title" id="cookiesTitle">Cookie Policy</h2>
+        <p class="modal-p"><strong>Last Updated: March 2024</strong></p>
+        <h3 class="modal-h3">What Are Cookies?</h3>
+        <p class="modal-p">Cookies are small text files placed on your device when you visit our website. They help us provide a better experience by remembering preferences.</p>
+        <h3 class="modal-h3">Essential Cookies</h3>
+        <p class="modal-p">Necessary for the website to function properly. They enable basic features like page navigation and cannot be disabled.</p>
+        <h3 class="modal-h3">Analytics Cookies</h3>
+        <p class="modal-p">Help us understand how visitors interact with our website, allowing us to improve our services and user experience over time.</p>
+        <h3 class="modal-h3">Managing Cookies</h3>
+        <p class="modal-p">Most web browsers allow you to control cookies through settings. You can block or delete cookies, though this may affect website functionality.</p>
+    </div>
+</div>
+
+<script>
+    /* ---- Mobile Menu ---- */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu   = document.getElementById('mobileMenu');
+    const mobileClose  = document.getElementById('mobileClose');
+
+    mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    mobileClose.addEventListener('click', closeMenu);
+
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    /* ---- FAQ Accordion ---- */
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
         });
-
-        // FAQ Toggle
-        function toggleFAQ(element) {
-            const faqItem = element.parentElement;
-            const isActive = faqItem.classList.contains('active');
-            
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        }
-
-        // Contact Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const brand = document.getElementById('brand').value;
-            const message = document.getElementById('message').value;
-            
-            const subject = `New Collaboration Request from ${brand}`;
-            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ABrand: ${brand}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-            
-            window.location.href = `mailto:sathicomic@gmail.com?subject=${subject}&body=${body}`;
+        q.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); }
         });
+    });
 
-        // Policy Modals
-        function showPolicy(type) {
-            if (type === 'privacy') {
-                document.getElementById('privacyModal').style.display = 'block';
-            } else if (type === 'cookies') {
-                document.getElementById('cookieModal').style.display = 'block';
+    /* ---- Modals ---- */
+    function openModal(type) {
+        const id = type === 'privacy' ? 'privacyModal' : 'cookiesModal';
+        document.getElementById(id).classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(type) {
+        const id = type === 'privacy' ? 'privacyModal' : 'cookiesModal';
+        document.getElementById(id).classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', e => {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
             }
-            document.body.style.overflow = 'hidden';
-        }
+        });
+    });
 
-        function closePolicy() {
-            document.getElementById('privacyModal').style.display = 'none';
-            document.getElementById('cookieModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal-overlay.active').forEach(m => {
+                m.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            closeMenu();
         }
+    });
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const privacyModal = document.getElementById('privacyModal');
-            const cookieModal = document.getElementById('cookieModal');
-            if (event.target === privacyModal) {
-                closePolicy();
-            }
-            if (event.target === cookieModal) {
-                closePolicy();
-            }
-        }
+    /* ---- Contact Form ---- */
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name    = document.getElementById('name').value.trim();
+        const email   = document.getElementById('email').value.trim();
+        const brand   = document.getElementById('brand').value.trim();
+        const message = document.getElementById('message').value.trim();
+        if (!name || !email || !brand || !message) return;
+        const subject = encodeURIComponent('New Collaboration Request from ' + brand);
+        const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nBrand: ' + brand + '\n\nMessage:\n' + message);
+        window.location.href = 'mailto:sathicomic@gmail.com?subject=' + subject + '&body=' + body;
+    });
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+    /* ---- Smooth Scroll ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
